@@ -21,7 +21,7 @@ function Restaurant() {
         <div className={classes.restaurant}>
             <Info restaurant={restaurant} />
             <Comments feedback={restaurant?.feedback} />
-            <Feedback />
+            <Feedback id={id} restaurant={restaurant} />
         </div>
     )
 }

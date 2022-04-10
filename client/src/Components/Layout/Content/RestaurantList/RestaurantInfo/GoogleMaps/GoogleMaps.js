@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import no_image from '../../../../../../static/images/no-image.jpg';
 import classes from './GoogleMaps.module.css';
 import {Link} from "react-router-dom";
+import {asset} from "../../../../../../Helper/HelperMethods";
 
 function GoogleMaps({ restaurants }) {
     const selectedMarker = useSelector(getSelectedMarker);
@@ -55,7 +56,7 @@ function GoogleMaps({ restaurants }) {
                         >
                             <div className='d-flex gap-2 justify-content-between'>
                                 <div>
-                                    <img src={selectedMarker.avatar ? selectedMarker.avatar : no_image} className={classes.img} />
+                                    <img src={selectedMarker.avatar ? asset(selectedMarker.avatar) : no_image} className={classes.img} />
                                 </div>
                                 <div>
                                     <h4>{selectedMarker.name}</h4>

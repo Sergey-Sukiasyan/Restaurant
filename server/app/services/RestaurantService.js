@@ -1,7 +1,7 @@
 const Restaurant = require('../../models').Restaurant;
 const sequelize = require('sequelize');
 
-class RestaurantServce {
+class RestaurantService {
     async showAll() {
         return await Restaurant.findAll({
             attributes: [
@@ -23,6 +23,12 @@ class RestaurantServce {
             include: 'feedback'
         });
     }
+
+    async addNewRestaurant(body, file) {
+        const { name, address, info, tariff, latitude, longitude } = body;
+
+        return await Restaurant.create({ name, address, info, tariff, latitude, longitude, avatar: file ? file.filename: null });
+    }
 }
 
-module.exports = new RestaurantServce();
+module.exports = new RestaurantService();

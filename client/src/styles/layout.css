@@ -31,6 +31,23 @@ body * {
     max-width: 1800px;
 }
 
+.labelName {
+    font-family: Pacifico;
+}
+
+.effect-hover {
+    cursor: pointer;
+}
+
+.effect-hover:hover {
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+
+.effect-hover:active {
+    opacity: 0.5;
+}
+
 @media only screen and (max-width: 1160px) {
     .container-fluid > div {
         flex-direction: column-reverse;

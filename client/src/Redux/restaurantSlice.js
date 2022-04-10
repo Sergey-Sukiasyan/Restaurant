@@ -30,22 +30,34 @@ const restaurantSlice = createSlice({
     reducers: {
         setSelectedMarker(state, action) {
             state.selectedMarker = action.payload
+        },
+        setRestaurantOnlyOne(state, action) {
+            state.restaurant_only_one = action.payload
         }
     },
     extraReducers: (builder) => {
         builder.addCase(getRestaurantsData.fulfilled, (state, action) => {
             state.restaurants = action.payload
+            state.isLoading = false;
+        });
+        builder.addCase(getRestaurantsData.pending, (state, action) => {
+            state.isLoading = true;
         });
         builder.addCase(getRestaurantOnlyOneData.fulfilled, (state, action) => {
             state.restaurant_only_one = action.payload
+            state.isLoading = false;
+        });
+        builder.addCase(getRestaurantOnlyOneData.pending, (state, action) => {
+            state.isLoading = true;
         });
     }
 });
 
-export const { setSelectedMarker } = restaurantSlice.actions;
+export const { setSelectedMarker,setRestaurantOnlyOne } = restaurantSlice.actions;
 
 export default restaurantSlice.reducer;
 
 export const getRestaurants = (state) => state?.restaurant?.restaurants;
+export const getLoadingStatus = (state) => state?.restaurant?.isLoading;
 export const getRestaurantOnlyOne = (state) => state?.restaurant?.restaurant_only_one;
 export const getSelectedMarker = (state) => state?.restaurant?.selectedMarker;

@@ -13,15 +13,6 @@ require('./config/cors.js');
 // JSON
 require('./config/json.js');
 
-// COOKIE 
-require('./config/cookieParser.js');
-
-// SESSION
-require('./config/session.js');
-
-// CSRF TOKEN
-require('./config/csrf.js');
-
 // Middleware
 require('./app/middleware/kernel.js');
 

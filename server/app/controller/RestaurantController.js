@@ -1,5 +1,6 @@
 const RestaurantService = require("../services/RestaurantService");
 const Controller = require("./Controller");
+const addNewRestaurantValidation = require('../validaton/addNewRestaurantValidation');
 
 class RestaurantController extends Controller {
     constructor() {
@@ -29,6 +30,18 @@ class RestaurantController extends Controller {
             console.log(e);
         }
     }
+
+        async addNewRestaurant(req, res) {
+            try{
+                console.log(addNewRestaurantValidation(req.body));
+
+                await RestaurantService.addNewRestaurant(req.body, req.file);
+
+                return res.json(true);
+            } catch (e) {
+                console.log(e);
+            }
+        }
 }
 
 module.exports = new RestaurantController();

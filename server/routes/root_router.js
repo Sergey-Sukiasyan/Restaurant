@@ -1,4 +1,6 @@
-const app = require('../config/app.js');
-const restaurantRouter = require('./restaurant.js');
+const app = require('../config/app');
+const restaurantRouter = require('./restaurant');
+const feedbackRouter = require('./feedback');
 
 app.use(restaurantRouter);
+app.use(feedbackRouter);

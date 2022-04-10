@@ -12,14 +12,14 @@ module.exports = {
         type: Sequelize.STRING(64)
       },
       avatar: {
-        type: Sequelize.STRING(64),
+        type: Sequelize.TEXT,
         allowNull: true
       },
       address: {
         type: Sequelize.STRING(64)
       },
       info: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       tariff: {
         type: Sequelize.INTEGER

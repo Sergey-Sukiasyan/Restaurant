@@ -2,20 +2,23 @@ import no_image from "../../../../../static/images/no-image.jpg";
 import classes from "../Restaurant.module.css";
 import ReactStars from "react-rating-stars-component";
 import {useMemo} from "react";
+import {asset} from "../../../../../Helper/HelperMethods";
+import NoData from "../../../../UI/NoData/NoData";
 
 function Info({ restaurant }) {
     const rating = useMemo(() => {
         let rating = 0;
-        restaurant.feedback?.forEach(item => rating += +item.rating)
-        return rating / restaurant.feedback?.length;
+        restaurant?.feedback?.forEach(item => rating += +item.rating)
+        return rating / restaurant?.feedback?.length;
     },[restaurant]);
 
     return (
+        restaurant ? (
         <div className='row gap-3'>
             <div className='card'>
                 <div className="card-body row">
                     <div className="col-5">
-                        <img src={restaurant.avatar ? restaurant.avatar : no_image} className='w-100' />
+                        <img src={restaurant.avatar ? asset(restaurant.avatar) : no_image} className='w-100' />
                     </div>
                     <div className="col-7">
                         <div className='d-flex justify-content-between'>
@@ -29,7 +32,7 @@ function Info({ restaurant }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> ) : <NoData />
     )
 }
 

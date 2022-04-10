@@ -1,11 +1,12 @@
 const multer = require('multer');
+const path = require("path");
 
 const storage = multer.diskStorage({
     destination(req, file, cb) {
-        cb(null, 'storage/images');
+        cb(null, path.join(__dirname, '../../storage/images'));
     },
     filename(req, file, cb) {
-        cb(null, new Date().toISOString() + '-' + file.originalname)
+        cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname)
     }
 });
 
@@ -22,4 +23,4 @@ const fileFilter = (req, file, cb) => {
 module.exports = multer({
     storage, 
     fileFilter,
-}).single('image');
+}).single('avatar');

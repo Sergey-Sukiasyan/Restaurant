@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Feedback.init({
     restaurant_id: DataTypes.INTEGER,
-    comment: DataTypes.STRING,
+    comment: DataTypes.TEXT,
     rating: DataTypes.INTEGER
   }, {
     sequelize,

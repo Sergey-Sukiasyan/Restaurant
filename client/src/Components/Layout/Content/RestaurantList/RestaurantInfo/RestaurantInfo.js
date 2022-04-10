@@ -3,6 +3,7 @@ import GoogleMaps from "./GoogleMaps/GoogleMaps";
 import {useDispatch, useSelector} from "react-redux";
 import {getRestaurants, getRestaurantsData} from "../../../../../Redux/restaurantSlice";
 import {useEffect} from "react";
+import NoData from "../../../../UI/NoData/NoData";
 
 function RestaurantInfo() {
     const dispatch = useDispatch();
@@ -15,8 +16,12 @@ function RestaurantInfo() {
     return (
         <div className="container-fluid mb-5">
             <div className="d-flex justify-content-center row">
-                <ListComponent restaurants={restaurants} />
-                <GoogleMaps restaurants={restaurants} />
+                {restaurants.length ? (
+                    <>
+                        <ListComponent restaurants={restaurants} />
+                        <GoogleMaps restaurants={restaurants} />
+                    </>
+                    ) : <NoData />}
             </div>
         </div>
     )
