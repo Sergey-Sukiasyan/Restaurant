@@ -1,6 +1,6 @@
 class Controller {
 
-    static toJson(data) {
+    toJson(data) {
         return JSON.stringify(data, null, 2);
     }
 }

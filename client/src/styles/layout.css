@@ -1,0 +1,62 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body * {
+    outline: none;
+}
+
+.scale-effect {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.scale-effect > img {
+    transition: 0.3s ease;
+}
+
+.scale-effect:hover > img {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.container-fluid {
+    max-width: 1800px;
+}
+
+@media only screen and (max-width: 1160px) {
+    .container-fluid > div {
+        flex-direction: column-reverse;
+    }
+
+    .container-fluid > div>div:first-child{
+        width: 80%!important;
+        margin: 0 auto;
+    }
+
+    .container-fluid > div>div:last-child {
+        width: 100%!important;
+        margin: 30px 0px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .container-fluid > div>div:first-child{
+        width: 50%!important;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container-fluid > div>div:first-child{
+        width: 60%!important;
+        margin: 0 auto;
+    }
+}
