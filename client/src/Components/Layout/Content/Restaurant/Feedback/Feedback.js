@@ -23,12 +23,16 @@ function Feedback({ id, restaurant }) {
                 ToastError('The filed is required');
             } else {
                 const response = await addNewFeedbackApi(id, {comment: textarea, rating});
-                const new_restaurant_data = addFeedbackData(restaurant, response.data);
-                dispatch(setRestaurantOnlyOne(new_restaurant_data));
-                setErrors({});
-                setTextarea('');
-                setNewRating(null);
-                ToastSuccess('Success');
+                if(response.data?.errors) {
+                    setErrors({ textarea: response.data?.errors.comment });
+                } else {
+                    const new_restaurant_data = addFeedbackData(restaurant, response.data);
+                    dispatch(setRestaurantOnlyOne(new_restaurant_data));
+                    setErrors({});
+                    setTextarea('');
+                    setNewRating(null);
+                    ToastSuccess('Success');
+                }
             }
         } catch (e) {
             console.log(e);

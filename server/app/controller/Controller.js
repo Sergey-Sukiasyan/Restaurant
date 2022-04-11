@@ -6,9 +6,7 @@ class Controller {
 
     validationErrors({errors}) {
         const new_errors = {};
-
         errors.forEach(err => new_errors[err.param] = err.msg);
-
         return new_errors;
     }
 }

@@ -1,6 +1,6 @@
 const RestaurantService = require("../services/RestaurantService");
 const Controller = require("./Controller");
-const addNewRestaurantValidation = require('../validaton/addNewRestaurantValidation');
+const addNewRestaurantValidation = require('../validaton/addNewFeedbackValidation');
 
 class RestaurantController extends Controller {
     constructor() {
