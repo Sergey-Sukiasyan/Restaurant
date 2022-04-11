@@ -1,4 +1,5 @@
 const Controller = require("./Controller");
+const ApiError = require('../exception/ApiError');
 const FeedbackService = require('../services/FeedbackService');
 const addNewFeedbackValidation = require('../validaton/addNewFeedbackValidation');
 
@@ -20,7 +21,7 @@ class FeedbackController extends Controller {
 
             res.json(new_feedback);
         } catch (e) {
-            console.log(e);
+            ApiError.InternalServerError(res, e.message);
         }
     }
 }

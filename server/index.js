@@ -16,6 +16,9 @@ require('./config/json.js');
 // Middleware
 require('./app/middleware/kernel.js');
 
+// FileUpload
+require('./config/fileupload');
+
 // Routes
 require('./routes/root_router.js');
 

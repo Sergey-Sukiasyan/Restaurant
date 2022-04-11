@@ -3,7 +3,7 @@ import GoogleMaps from "./GoogleMaps/GoogleMaps";
 import {useDispatch, useSelector} from "react-redux";
 import {getRestaurants, getRestaurantsData} from "../../../../../Redux/restaurantSlice";
 import {useEffect} from "react";
-import NoData from "../../../../UI/NoData/NoData";
+import Static from "../../../../UI/Static/Static";
 
 function RestaurantInfo() {
     const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function RestaurantInfo() {
                         <ListComponent restaurants={restaurants} />
                         <GoogleMaps restaurants={restaurants} />
                     </>
-                    ) : <NoData />}
+                    ) : <Static text='No Data' />}
             </div>
         </div>
     )

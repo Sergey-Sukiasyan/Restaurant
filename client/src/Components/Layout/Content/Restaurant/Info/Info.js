@@ -3,7 +3,7 @@ import classes from "../Restaurant.module.css";
 import ReactStars from "react-rating-stars-component";
 import {useMemo} from "react";
 import {asset} from "../../../../../Helper/HelperMethods";
-import NoData from "../../../../UI/NoData/NoData";
+import Static from "../../../../UI/Static/Static";
 
 function Info({ restaurant }) {
     const rating = useMemo(() => {
@@ -32,7 +32,7 @@ function Info({ restaurant }) {
                     </div>
                 </div>
             </div>
-        </div> ) : <NoData />
+        </div> ) : <Static text='No Data' />
     )
 }
 

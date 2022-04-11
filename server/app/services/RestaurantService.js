@@ -1,5 +1,6 @@
 const Restaurant = require('../../models').Restaurant;
 const sequelize = require('sequelize');
+const path = require("path");
 
 class RestaurantService {
     async showAll() {
@@ -25,9 +26,16 @@ class RestaurantService {
     }
 
     async addNewRestaurant(body, file) {
-        const { name, address, info, tariff, latitude, longitude } = body;
+        if(file) {
+            const asset = path.join(__dirname, '../../storage/images');
+            const filename = new Date().toISOString().replace(/:/g, '-') + file.avatar.name;
 
-        return await Restaurant.create({ name, address, info, tariff, latitude, longitude, avatar: file ? file.filename: null });
+            return file.avatar.mv(asset + '/' + filename, async err => {
+                if(err) throw new Error('error upload file');
+                return await Restaurant.create({...body, avatar: filename});
+            });
+        }
+        return await Restaurant.create({...body});
     }
 }
 

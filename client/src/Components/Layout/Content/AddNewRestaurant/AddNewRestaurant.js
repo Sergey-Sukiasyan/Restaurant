@@ -32,14 +32,14 @@ function AddNewRestaurant() {
                 setErrors(restaurant.data?.error);
                 ToastError('Enter correct data');
             } else {
-                setName('');
-                setAvatar('');
-                setAddress('');
-                setInfo('');
-                setTariff('');
-                setLatitude('');
-                setLongitude('');
-                setErrors([]);
+                // setName('');
+                // setAvatar('');
+                // setAddress('');
+                // setInfo('');
+                // setTariff('');
+                // setLatitude('');
+                // setLongitude('');
+                // setErrors([]);
                 ToastSuccess('New Restaurant Successfully added!!!');
             }
         } catch (e) {

@@ -1,5 +1,6 @@
 const RestaurantService = require("../services/RestaurantService");
 const Controller = require("./Controller");
+const ApiError = require('../exception/ApiError');
 const addNewRestaurantValidation = require('../validaton/addNewRestaurantValidation');
 
 class RestaurantController extends Controller {
@@ -13,7 +14,7 @@ class RestaurantController extends Controller {
 
             res.json(restaurants);
         } catch(e) {
-            console.log(e);
+            ApiError.InternalServerError(res, e.message);
         }
     }
 
@@ -24,24 +25,24 @@ class RestaurantController extends Controller {
 
             res.json(restaurant);
         } catch (e) {
-            console.log(e);
+            ApiError.InternalServerError(res, e.message);
         }
     }
 
         async addNewRestaurant(req, res) {
             try{
+                console.log(asdasd);
                 const error = addNewRestaurantValidation(req.body);
 
                 if(Object.keys(error).length) {
                     return res.json({ error });
                 }
 
-                await RestaurantService.addNewRestaurant(req.body, req.file);
-
+                await RestaurantService.addNewRestaurant(req.body, req.files);
 
                 return res.json(true);
             } catch (e) {
-                console.log(e);
+                ApiError.InternalServerError(res, e.message);
             }
         }
 }

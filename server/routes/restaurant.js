@@ -5,6 +5,6 @@ const router = require('express').Router();
 
 router.get('/restaurants', RestaurantController.showAll);
 router.get('/restaurant/:id', RestaurantController.showOne);
-router.post('/add_new_restaurant', avatar_upload, RestaurantController.addNewRestaurant);
+router.post('/add_new_restaurant', RestaurantController.addNewRestaurant);
 
 module.exports = router;

@@ -39,6 +39,21 @@ body * {
     cursor: pointer;
 }
 
+.effect-hover > div {
+    height: 190px;
+    overflow: hidden;
+}
+
+.effect-hover > div > div {
+    height: 100%;
+}
+
+.effect-hover img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+}
+
 .effect-hover:hover {
     opacity: 0.8;
     transition: 0.3s ease;
