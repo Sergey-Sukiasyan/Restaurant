@@ -1,7 +1,13 @@
-const { body } = require('express-validator');
+const Validator = require('validatorjs');
 
-module.exports = [
-    body('comment')
-        .notEmpty()
-        .withMessage('The filed is required')
-];
+module.exports = function (data) {
+    let rules = {
+        comment: 'required',
+    };
+
+    let validation = new Validator(data, rules);
+
+    validation.fails();
+
+    return validation.errors.errors;
+}

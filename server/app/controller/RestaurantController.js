@@ -9,7 +9,6 @@ class RestaurantController extends Controller {
 
     async showAll(req, res) {
         try {
-
             const restaurants = await RestaurantService.showAll();
 
             res.json(restaurants);
@@ -20,9 +19,7 @@ class RestaurantController extends Controller {
 
     async showOne(req, res) {
         try{
-
             const id = req.params.id;
-
             const restaurant = await RestaurantService.showOne(id);
 
             res.json(restaurant);
@@ -40,6 +37,7 @@ class RestaurantController extends Controller {
                 }
 
                 await RestaurantService.addNewRestaurant(req.body, req.file);
+
 
                 return res.json(true);
             } catch (e) {

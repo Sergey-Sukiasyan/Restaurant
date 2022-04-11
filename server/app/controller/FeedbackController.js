@@ -1,6 +1,6 @@
 const Controller = require("./Controller");
 const FeedbackService = require('../services/FeedbackService');
-const {validationResult} = require("express-validator");
+const addNewFeedbackValidation = require('../validaton/addNewFeedbackValidation');
 
 class FeedbackController extends Controller {
     constructor() {
@@ -9,10 +9,9 @@ class FeedbackController extends Controller {
 
     async add_new_feedback(req, res) {
         try{
-            const errors = validationResult(req);
-
-            if(!errors.isEmpty()) {
-                return res.json({ errors: super.validationErrors(errors) });
+            const errors = addNewFeedbackValidation(req.body);
+            if(Object.keys(errors).length) {
+                return res.json({ errors });
             }
 
             const id = req.params.id;
