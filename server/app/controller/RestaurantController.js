@@ -31,7 +31,6 @@ class RestaurantController extends Controller {
 
         async addNewRestaurant(req, res) {
             try{
-                console.log(asdasd);
                 const error = addNewRestaurantValidation(req.body);
 
                 if(Object.keys(error).length) {
