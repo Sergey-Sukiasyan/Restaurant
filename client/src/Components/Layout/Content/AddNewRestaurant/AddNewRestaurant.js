@@ -47,7 +47,7 @@ function AddNewRestaurant() {
             <h2 className={classes.name}>Add New Restaurant</h2>
             <div className="mt-3">
                 <Input type='text' value={name} onChange={e => setName(e.target.value)} error={errors.name} label='Name' placeholder='Name' />
-                <Input type='file' onChange={e => setAvatar(e.target.files[0])} label='Avatar' error={errors.avatar} placeholder='Avatar' />
+                <Input type='file' onChange={e => setAvatar(e.target.files[0])} label='Avatar' error={errors.avatar} error={errors.avatar} placeholder='Avatar' />
                 <Input type='text' value={address} onChange={e => setAddress(e.target.value)} label='Address' error={errors.address} placeholder='Address' />
                 <Input type='text' value={tariff} onChange={e => setTariff(e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0'))} label='Tariff' error={errors.tariff} placeholder='Tariff' />
                 <Textarea type='text' value={info} onChange={e => setInfo(e.target.value)} label='Description' error={errors.info} rows={4} placeholder='Description' />

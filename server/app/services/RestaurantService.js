@@ -29,11 +29,16 @@ class RestaurantService {
         if(file) {
             const asset = path.join(__dirname, '../../storage/images');
             const filename = new Date().toISOString().replace(/:/g, '-') + file.avatar.name;
+            const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg'];
 
-            return file.avatar.mv(asset + '/' + filename, async err => {
-                if(err) throw new Error('error upload file');
-                return await Restaurant.create({...body, avatar: filename});
-            });
+            if(allowedTypes.includes(file.avatar.mimetype)) {
+                return file.avatar.mv(asset + '/' + filename, async err => {
+                    if(err) throw new Error('error upload file');
+                    return await Restaurant.create({...body, avatar: filename});
+                });
+            } else {
+                return {error:{avatar:["Avatar should be only 'jpg, jpeg, png' types"]}};
+            }
         }
         return await Restaurant.create({...body});
     }

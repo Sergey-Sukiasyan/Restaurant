@@ -37,9 +37,9 @@ class RestaurantController extends Controller {
                     return res.json({ error });
                 }
 
-                await RestaurantService.addNewRestaurant(req.body, req.files);
+                const result = await RestaurantService.addNewRestaurant(req.body, req.files);
 
-                return res.json(true);
+                return res.json(result);
             } catch (e) {
                 ApiError.InternalServerError(res, e.message);
             }
