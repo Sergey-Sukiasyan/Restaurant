@@ -4,8 +4,10 @@ import {useState} from "react";
 import {addNewRestaurant} from "../../../../Services/ApiService";
 import Textarea from "../../../UI/Textarea/Textarea";
 import {ToastError, ToastSuccess} from "../../../../Helper/Tostify";
+import { useNavigate } from "react-router-dom";
 
 function AddNewRestaurant() {
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [avatar, setAvatar] = useState('');
     const [address, setAddress] = useState('');
@@ -32,14 +34,7 @@ function AddNewRestaurant() {
                 setErrors(restaurant.data?.error);
                 ToastError('Enter correct data');
             } else {
-                // setName('');
-                // setAvatar('');
-                // setAddress('');
-                // setInfo('');
-                // setTariff('');
-                // setLatitude('');
-                // setLongitude('');
-                // setErrors([]);
+                navigate('/');
                 ToastSuccess('New Restaurant Successfully added!!!');
             }
         } catch (e) {
