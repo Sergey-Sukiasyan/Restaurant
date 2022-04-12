@@ -1,4 +1,4 @@
-import restaurant from '../../../../../static/images/restaurant.jpg';
+import restaurant from '../../../../../Static/images/restaurant.jpg';
 import classes from './TestTask.module.css';
 
 function TestTask() {

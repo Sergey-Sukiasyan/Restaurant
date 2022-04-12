@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import '../../styles/layout.css';
+import '../../Styles/layout.css';
 import Header from './Header/Header';
 import RouteList from './RouteList/RouteList';
 import { ToastContainer } from 'react-toastify';

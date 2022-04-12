@@ -1,9 +1,11 @@
-import no_image from '../../../../../../../static/images/no-image.jpg';
+import no_image from '../../../../../../../Static/images/no-image.jpg';
 import {setSelectedMarker} from "../../../../../../../Redux/restaurantSlice";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import ReactStars from "react-rating-stars-component/dist/react-stars";
 import {asset} from "../../../../../../../Helper/HelperMethods";
+import {Rating} from "react-simple-star-rating";
+import Ratings from "../../../../../../UI/Ratings/Ratings";
 
 function List({ restaurant }) {
     const dispatch = useDispatch();
@@ -22,7 +24,7 @@ function List({ restaurant }) {
                     <div className="d-flex flex-row mb-1">
                         <span className='text-truncate'>{restaurant.address}</span>
                     </div>
-                    <ReactStars count={5} value={+restaurant.rating} size={20} edit={false} isHalf={true} />
+                    <Ratings ratingValue={+restaurant.rating} size={20} readonly={true} />
                 </div>
                 <div className="align-items-center align-content-center col-md-3 border-left my-2">
                     <div className="d-flex flex-row align-items-center">

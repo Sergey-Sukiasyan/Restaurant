@@ -1,9 +1,9 @@
-import no_image from "../../../../../static/images/no-image.jpg";
+import no_image from "../../../../../Static/images/no-image.jpg";
 import classes from "../Restaurant.module.css";
-import ReactStars from "react-rating-stars-component";
 import {useMemo} from "react";
 import {asset} from "../../../../../Helper/HelperMethods";
 import Static from "../../../../UI/Static/Static";
+import Ratings from "../../../../UI/Ratings/Ratings";
 
 function Info({ restaurant }) {
     const rating = useMemo(() => {
@@ -23,7 +23,7 @@ function Info({ restaurant }) {
                     <div className="col-7">
                         <div className='d-flex justify-content-between'>
                             <h2 className={classes.name}>{restaurant.name}</h2>
-                            {rating ? <ReactStars count={5} value={rating ? rating : 0} size={30} edit={false} isHalf={true} /> : null}
+                            {rating && <Ratings ratingValue={rating ? rating : 0} size={30} readonly={true} />}
                         </div>
                         <h3 className='my-3'>Tariff: {restaurant.tariff} $</h3>
                         <h5 className='my-3'>Address: {restaurant.address}</h5>

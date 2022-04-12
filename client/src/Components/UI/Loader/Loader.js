@@ -1,5 +1,5 @@
 import classes from "./Loader.module.css";
-import loader from '../../../static/images/loader.gif';
+import loader from '../../../Static/images/loader.gif';
 
 function Loader() {
     return (

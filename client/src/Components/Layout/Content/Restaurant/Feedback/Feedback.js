@@ -1,5 +1,4 @@
 import classes from "./Feedback.module.css";
-import ReactStars from "react-rating-stars-component/dist/react-stars";
 import {useState} from "react";
 import {ToastError, ToastSuccess} from "../../../../../Helper/Tostify";
 import Textarea from "../../../../UI/Textarea/Textarea";
@@ -7,6 +6,7 @@ import {addNewFeedbackApi} from "../../../../../Services/ApiService";
 import {useDispatch} from "react-redux";
 import {addFeedbackData} from "../../../../../Helper/HelperMethods";
 import {setRestaurantOnlyOne} from "../../../../../Redux/restaurantSlice";
+import Ratings from "../../../../UI/Ratings/Ratings";
 
 function Feedback({ id, restaurant }) {
     const dispatch = useDispatch();
@@ -45,7 +45,7 @@ function Feedback({ id, restaurant }) {
             <div className='card-body'>
                 <div className='d-flex align-items-center'>
                     <h2 className={classes.name}>Give feedback</h2>
-                    <ReactStars classNames='mx-3' size={35} onChange={setNewRating} isHalf={true} />
+                    <Ratings ratingValue={rating} onClick={setNewRating} size={30} showTooltip />
                 </div>
                 <Textarea value={textarea} onChange={(e) => setTextarea(e.target.value)} placeholder='Comment' rows={5} error={errors.textarea} />
                 <button className='btn btn-primary mt-3 px-5' onClick={sendFeedback}>Send</button>

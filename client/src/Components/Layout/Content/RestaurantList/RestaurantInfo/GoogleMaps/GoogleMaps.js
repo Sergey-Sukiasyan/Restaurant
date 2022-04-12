@@ -2,10 +2,11 @@ import {GoogleMap, InfoWindow, LoadScript, Marker} from "@react-google-maps/api"
 import {useMemo} from "react";
 import {getSelectedMarker, setSelectedMarker} from "../../../../../../Redux/restaurantSlice";
 import {useDispatch, useSelector} from "react-redux";
-import no_image from '../../../../../../static/images/no-image.jpg';
+import no_image from '../../../../../../Static/images/no-image.jpg';
 import classes from './GoogleMaps.module.css';
 import {Link} from "react-router-dom";
 import {asset} from "../../../../../../Helper/HelperMethods";
+import Ratings from "../../../../../UI/Ratings/Ratings";
 
 function GoogleMaps({ restaurants }) {
     const selectedMarker = useSelector(getSelectedMarker);
@@ -61,9 +62,8 @@ function GoogleMaps({ restaurants }) {
                                 <div>
                                     <h4>{selectedMarker.name}</h4>
                                     <div>{selectedMarker.address}</div>
-                                    <br/>
-                                    <div><b>Tariff: {selectedMarker.tariff} $</b></div>
-                                    <br/>
+                                    <div className={classes.tariff}><b>Tariff: {selectedMarker.tariff} $</b></div>
+                                    <Ratings ratingValue={selectedMarker.rating} size={15} readonly={true} className={classes.rating} /><br />
                                     <Link to={`/restaurant/${selectedMarker.id}`}>View Restaurant</Link>
                                 </div>
                             </div>
