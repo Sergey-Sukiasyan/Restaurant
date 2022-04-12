@@ -10,6 +10,7 @@ function RouteList() {
             <Route exact path='/' element={<RestaurantList />} />
             <Route path='/restaurant/:id' element={<Restaurant />} />
             <Route path='/add' element={<AddNewRestaurant />} />
+            <Route path='/500' element={<Static text='500 Internal Server Error' />} />
             <Route path='*' element={<Static text='404 Not Found' />} />
         </Routes>
     )

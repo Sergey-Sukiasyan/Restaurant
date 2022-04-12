@@ -7,12 +7,14 @@ import {useDispatch} from "react-redux";
 import {addFeedbackData} from "../../../../../Helper/HelperMethods";
 import {setRestaurantOnlyOne} from "../../../../../Redux/restaurantSlice";
 import Ratings from "../../../../UI/Ratings/Ratings";
+import {useNavigate} from "react-router-dom";
 
 function Feedback({ id, restaurant }) {
     const dispatch = useDispatch();
     const [rating, setRating] = useState(null);
     const [textarea, setTextarea] = useState('');
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
     const setNewRating = new_rating => setRating(new_rating);
 
@@ -35,7 +37,8 @@ function Feedback({ id, restaurant }) {
                 }
             }
         } catch (e) {
-            console.log(e);
+            navigate('/500')
+            ToastError(e.message);
         }
     }
 

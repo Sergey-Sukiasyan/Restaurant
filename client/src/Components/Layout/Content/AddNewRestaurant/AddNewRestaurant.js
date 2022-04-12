@@ -38,7 +38,8 @@ function AddNewRestaurant() {
                 ToastSuccess('New Restaurant Successfully added!!!');
             }
         } catch (e) {
-            console.log(e);
+            navigate('/500')
+            ToastError(e.message);
         }
     }
 

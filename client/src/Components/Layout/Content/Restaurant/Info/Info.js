@@ -23,7 +23,7 @@ function Info({ restaurant }) {
                     <div className="col-7">
                         <div className='d-flex justify-content-between'>
                             <h2 className={classes.name}>{restaurant.name}</h2>
-                            {rating && <Ratings ratingValue={rating ? rating : 0} size={30} readonly={true} />}
+                            {rating ? <Ratings ratingValue={rating ? rating : 0} size={30} readonly={true} /> : null}
                         </div>
                         <h3 className='my-3'>Tariff: {restaurant.tariff} $</h3>
                         <h5 className='my-3'>Address: {restaurant.address}</h5>
