@@ -2,9 +2,7 @@ import no_image from '../../../../../../../Static/images/no-image.jpg';
 import {setSelectedMarker} from "../../../../../../../Redux/restaurantSlice";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import ReactStars from "react-rating-stars-component/dist/react-stars";
 import {asset} from "../../../../../../../Helper/HelperMethods";
-import {Rating} from "react-simple-star-rating";
 import Ratings from "../../../../../../UI/Ratings/Ratings";
 
 function List({ restaurant }) {
